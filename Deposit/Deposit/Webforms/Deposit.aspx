@@ -14,6 +14,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>      
+        <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
         <div>
             <table>
                 <tr>
@@ -98,6 +101,12 @@
                 </tr>
             </table>
         </div>
+        </ContentTemplate>
+        <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
+            </Triggers> 
+        </asp:UpdatePanel>
+        <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick"></asp:Timer>
     </form>
 </body>
 </html>
